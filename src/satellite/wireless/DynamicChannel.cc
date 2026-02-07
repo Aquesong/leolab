@@ -77,7 +77,6 @@ void DynamicChannel::initParamerers() {
             try {
                 // 源节点订阅信号
                 // ...
-                srcMobility->subscribe(geodeticPositionChangedSignal, this);
             }
             catch (const cRuntimeError& e) {
                 EV_WARN << "cRuntimeError: Failed to subscribe to srcMobility " << srcMobility->getFullPath() << " Details: "<< e.what() << endl;
@@ -105,7 +104,6 @@ void DynamicChannel::initParamerers() {
             try {
                 // 目的节点订阅信号
                 // ...
-                destMobility->subscribe(geodeticPositionChangedSignal, this);
             }
             catch (const cRuntimeError& e) {
                 EV_WARN << "cRuntimeError: Failed to subscribe to srcMobility " << destMobility->getFullPath() << " Details: "<< e.what() << endl;
