@@ -89,24 +89,22 @@ void CircularOrbitMobility::setInitialPosition() {
 }
 
 void CircularOrbitMobility::move() {
+    // 父类周期性调用move()，每次调用时根据仿真时间计算新的经纬度位置，并更新lastPosition
     // 基于仿真时间计算相位
     // ...
-    phase = initPhase + omega * simTime().dbl();
     while(phase > 2 * M_PI) phase -= 2 * M_PI;  // 避免phase无限累积
 
     // 计算经度
     // ...
-    longitude = atan(cos(alpha) * tan(phase)) + rightAscension - earthRotationRate * simTime().dbl();
     while (longitude >  2 * M_PI)  longitude -= 2 * M_PI;   // 避免longitude无限累积
 
     // 计算纬度
     // ...
-    latitude = asin(sin(alpha) * sin(phase));
 
     // 将经纬度映射至2D平面
-    lastPosition.x = constraintAreaCenter.x + longitude * (constraintAreaMax.x - constraintAreaMin.x) / (2 * M_PI);
-    lastPosition.y = -(constraintAreaCenter.y + latitude * (constraintAreaMax.y - constraintAreaMin.y) / M_PI);
-    lastPosition.z = altitude;
+    // lastPosition.x = constraintAreaCenter.x + longitude * (constraintAreaMax.x - constraintAreaMin.x) / (2 * M_PI);
+    // lastPosition.y = -(constraintAreaCenter.y + latitude * (constraintAreaMax.y - constraintAreaMin.y) / M_PI);
+    // lastPosition.z = altitude;
 
     // 边界处理，WRAP代表遇到边界从另一边出来
     Coord dummyCoord;
