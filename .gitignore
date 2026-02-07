@@ -4,3 +4,4 @@ out
 *.vec
 *.sca
 src/Makefile.*
+src/leolab
