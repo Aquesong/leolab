@@ -111,14 +111,14 @@ void CircularOrbitMobility::move() {
     handleIfOutside(WRAP, dummyCoord, dummyCoord);
 
     // 更新经纬度信息对象
-    currentGeoPos->longitude = rad2deg(longitude);
-    currentGeoPos->latitude = rad2deg(latitude);
-    currentGeoPos->altitude = altitude;
-    currentGeoPos->timestamp = simTime();
+    // currentGeoPos->longitude = rad2deg(longitude);
+    // currentGeoPos->latitude = rad2deg(latitude);
+    // currentGeoPos->altitude = altitude;
+    // currentGeoPos->timestamp = simTime();
     
     // 发射包含经纬度对象的信号
     // ...
-    emit(geodeticPositionChangedSignal, currentGeoPos);
+    
 
 }
 
