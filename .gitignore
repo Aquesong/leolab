@@ -7,7 +7,7 @@ out
 *.csv
 *results
 *.so
-*.lib
+*lib*
 *.exe
 src/Makefile.*
 src/leolab
