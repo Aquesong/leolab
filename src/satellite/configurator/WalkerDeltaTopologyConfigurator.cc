@@ -225,8 +225,7 @@ void WalkerDeltaTopologyConfigurator::initSatellitePosition() {
             
             // 计算每一个卫星的升交点赤经rightAscension和初始相位phase
             // ...
-            rightAscension = 2 * M_PI / N * i + initRightAscension;
-            phase = 2 * M_PI / M * (j + i * F / N) + initPhase;
+            
 
             // 初始化卫星节点
             satelliteMobility->par("initPhase").setDoubleValue(phase);
