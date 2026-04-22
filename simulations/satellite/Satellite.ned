@@ -16,11 +16,11 @@ network Satellite
         double initPhase @unit(rad) = default(0rad);
         double alpha @unit(rad) = default(45rad);
         double altitude @unit(km) = default(550km);
-        int numSatellites = default(2);
-        int numPlane = default(2);
+        int numSatellites = default(1);
+        int numPlane = default(1);
         int F = default(0);
         int numGroundHosts = default(0);
-        
+
     submodules:
         visualizer: IntegratedVisualizer {
             @display("p=300,100");
@@ -37,6 +37,6 @@ network Satellite
         }
         groundHost[numGroundHosts]: GroundHost {
         }
-        
+
     connections allowunconnected:
 }

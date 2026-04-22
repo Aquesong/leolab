@@ -24,5 +24,5 @@ channel DynamicChannel extends EthernetLink {
         double propagationSpeed = default(299792458mps) @unit(mps); // 传播速度 (默认光速)
         double minUpdateInterval = default(100ms) @unit(s);         // 最小更新间隔 - 控制更新频率
         delay = default(1s);                                        // 初始化使用，仿真运行后自动更新
-        datarate = default(10Mbps);
+        datarate = default(1Gbps);
 }

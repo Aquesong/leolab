@@ -45,6 +45,7 @@ void WalkerDeltaTopologyConfigurator::initialize(int stage) {
         numPlane = network->par("numPlane").intValue();
         F = network->par("F").intValue();
         numGroundHosts = network->par("numGroundHosts").intValue();
+        datarate = par("datarate").doubleValue();
         
         initSatellitePosition();
         createFourLinks();
@@ -162,8 +163,8 @@ void WalkerDeltaTopologyConfigurator::updateGroundToSatelliteLinks() {
                     // 创建新连接
                     try {
                         // 双向链路
-                        createDynamicChannel(terminalGate, targetSatelliteInputGate);
-                        createDynamicChannel(targetSatelliteOutputGate, terminalInputGate);
+                        createDynamicChannel(terminalGate, targetSatelliteInputGate, nullptr, datarate);
+                        createDynamicChannel(targetSatelliteOutputGate, terminalInputGate, nullptr, datarate);
                         EV_INFO << "Successfully created dynamic channels for terminal [" << i << "] and satellite [" << currentIdx << "]" << endl;
                     }
                     catch (const cRuntimeError& e) {
@@ -186,8 +187,8 @@ void WalkerDeltaTopologyConfigurator::updateGroundToSatelliteLinks() {
             EV_INFO << "Creating new connection for terminal [" << i << "] to satellite [" << currentIdx << "]" << endl;
             // 创建新连接
             try {
-                createDynamicChannel(terminalGate, targetSatelliteInputGate);
-                createDynamicChannel(targetSatelliteOutputGate, terminalInputGate);
+                createDynamicChannel(terminalGate, targetSatelliteInputGate, nullptr, datarate);
+                createDynamicChannel(targetSatelliteOutputGate, terminalInputGate, nullptr, datarate);
                 EV_INFO << "Successfully created dynamic channels for terminal [" << i << "] and satellite [" << currentIdx << "]" << endl;
             }
             catch (const cRuntimeError& e) {
@@ -265,7 +266,7 @@ void WalkerDeltaTopologyConfigurator::createFourLinks() {
                 destModule = network->getSubmodule(satelliteModuleName.c_str(), neighborsIdx[k]);
                 // 构建星间链路，可在此添加判断条件，不符合建链要求的链路跳过
                 // ...
-                createDynamicChannel(srcModule->gate("ethg$o", k), destModule->gate("ethg$i", gatesIdx[k]));
+                createDynamicChannel(srcModule->gate("ethg$o", k), destModule->gate("ethg$i", gatesIdx[k]), nullptr, datarate);
             }
 
         }

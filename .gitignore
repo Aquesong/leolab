@@ -3,5 +3,11 @@ out
 *.vci
 *.vec
 *.sca
+*.anf
+*.csv
+*results
+*.so
+*.lib
+*.exe
 src/Makefile.*
 src/leolab

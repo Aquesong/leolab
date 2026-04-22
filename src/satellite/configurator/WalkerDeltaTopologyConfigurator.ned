@@ -24,4 +24,5 @@ simple WalkerDeltaTopologyConfigurator {
         string satelliteModuleName = default("");
         string groundHostModuleName = default("");
         double updateInterval = default(10s) @unit(s);
+        double datarate = default(1Gbps) @unit(bps);
 }

@@ -50,6 +50,7 @@ class WalkerDeltaTopologyConfigurator : public cSimpleModule {
         int numPlane;
         int F;
         int numGroundHosts;
+        double datarate;
 
         void initSatellitePosition();
         void createFourLinks();
@@ -61,7 +62,7 @@ class WalkerDeltaTopologyConfigurator : public cSimpleModule {
             cGate* srcOutGate, 
             cGate* destInGate, 
             const char* channelName = nullptr, 
-            double datarate = 1e7,
+            double datarate = 1e9,
             double propagationSpeed = 299792458.0,
             double minUpdateInterval = 0.1
         );
